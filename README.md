@@ -3,7 +3,7 @@
 
 
 ```
-az account set --subscription 80ea84e8-afce-4851-928a-9e2219724c69
+az account set --subscription 80ea84e8-afce-xxxxxxx-xxxxxxxxxx
 
 
 az aks get-credentials --resource-group 1-7e90c6e4-playground-sandbox --name aksdemo01
