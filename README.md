@@ -30,4 +30,15 @@ kubectl logs -l app=nginx --namespace kube-system
 niranjan@Azure:~$ az aks get-credentials --resource-group webserver_group --name aks-demo
 Merged "aks-demo" as current context in /home/niranjan/.kube/config
 ```
+## How to connect to kubernetes nodes in node pools
+```
+NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE  KERNEL-VERSION      CONTAINER-RUNTIME
+aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
+aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
+aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1787     containerd://1.6.21+azure
 
+kubectl debug node/aks-agentpool-27538887-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
+
+
+
+```
