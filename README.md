@@ -38,7 +38,10 @@ aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4
 aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1787     containerd://1.6.21+azure
 
 kubectl debug node/aks-agentpool-27538887-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
-
-
-
+```
+## How to Delete AKS Cluster.
+```
+az aks delete --resource-group my-RG --name aks-clustername
+Are you sure you want to perform this operation? (y/n): y
+ \ Running ..
 ```
