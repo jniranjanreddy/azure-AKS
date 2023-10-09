@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: beer-wine-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "false"
+    # nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+  - http:
+      paths:
+      - path: /beer
+        pathType: Prefix
+        backend:
+          service:
+            name: beer
+            port:
+              number: 80
+      - path: /wine
+        pathType: Prefix
+        backend:
+          service:
+            name: wine
+            port:
+              number: 80
+      
