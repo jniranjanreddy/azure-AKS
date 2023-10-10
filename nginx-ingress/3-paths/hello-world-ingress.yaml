@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-world-ingress-three
+  namespace: hello-world
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+  - http:
+      paths:
+      - path: /hello-world-three(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-three
+            port:
+              number: 80
+      
