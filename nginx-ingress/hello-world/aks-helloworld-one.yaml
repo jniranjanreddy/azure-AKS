@@ -1,30 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: beer  
+  name: aks-helloworld-one
+  namespace: hello-world
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: beer
+      app: aks-helloworld-one
   template:
     metadata:
       labels:
-        app: beer
+        app: aks-helloworld-one
     spec:
       containers:
-      - name: beer
-        image: nirulabs/beer
+      - name: aks-helloworld-one
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: beer  
+  name: aks-helloworld-one  
 spec:
   type: ClusterIP
   ports:
   - port: 80
   selector:
-    app: beer
+    app: aks-helloworld-one
