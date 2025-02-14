@@ -1,0 +1,55 @@
+aks-hello-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-hello
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: aks-hello
+  template:
+    metadata:
+      labels:
+        app: aks-hello
+    spec:
+      containers:
+        - name: aks-hello
+          image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-hello-service
+  namespace: default
+spec:
+  selector:
+    app: aks-hello
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aks-hello-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+spec:
+  rules:
+  - host:   # Replace with your domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-hello-service
+            port:
+              number: 80
