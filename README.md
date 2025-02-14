@@ -37,3 +37,7 @@ homelab#kubectl.exe get ing
 NAME                CLASS    HOSTS   ADDRESS         PORTS   AGE
 aks-hello-ingress   <none>   *       <Azure Appgateway IP >   80      3m6s
 ```
+## How to attch Azure ACR to AKS cluster
+```
+az aks update -n jnrlabs-medplum -g jnrlabs-medplum-rg  --attach-acr devacr
+```
