@@ -18,6 +18,8 @@ webapprouting.kubernetes.azure.com   webapprouting.kubernetes.azure.com/nginx   
 ```
 ## below is wroked for Azure application Gateway
 ```
+kubectl apply -f aks-hello-deployment.yaml
+
 homelab#kubectl.exe get pods
 NAME                         READY   STATUS    RESTARTS   AGE
 aks-hello-7d77db67d5-p7pbr   1/1     Running   0          2m50s
@@ -33,5 +35,5 @@ kubernetes          ClusterIP   10.0.0.1       <none>        443/TCP   79m
 
 homelab#kubectl.exe get ing
 NAME                CLASS    HOSTS   ADDRESS         PORTS   AGE
-aks-hello-ingress   <none>   *       <App >   80      3m6s
+aks-hello-ingress   <none>   *       <Azure Appgateway IP >   80      3m6s
 ```
