@@ -16,3 +16,22 @@ root@nginx02:/myworkspace/azure-AKS/nginx-ingress/hello-world# k get ingressclas
 NAME                                 CONTROLLER                                 PARAMETERS   AGE
 webapprouting.kubernetes.azure.com   webapprouting.kubernetes.azure.com/nginx   <none>       154m
 ```
+## below is wroked for Azure application Gateway
+```
+homelab#kubectl.exe get pods
+NAME                         READY   STATUS    RESTARTS   AGE
+aks-hello-7d77db67d5-p7pbr   1/1     Running   0          2m50s
+aks-hello-7d77db67d5-vpdjn   1/1     Running   0          2m50s
+
+
+homelab#kubectl.exe get svc
+NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+aks-hello-service   ClusterIP   10.0.147.136   <none>        80/TCP    3m2s
+kubernetes          ClusterIP   10.0.0.1       <none>        443/TCP   79m
+
+
+
+homelab#kubectl.exe get ing
+NAME                CLASS    HOSTS   ADDRESS         PORTS   AGE
+aks-hello-ingress   <none>   *       <App >   80      3m6s
+```
