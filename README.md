@@ -10,6 +10,12 @@ Part-3 https://www.youtube.com/watch?v=YMWXxODAmSk
 https://www.youtube.com/watch?v=BqjXqYhGU78
 
 ```
+## Sources:
+```
+https://github.com/stacksimplify
+https://cert-manager.io/docs/
+```
+
 ![image](https://github.com/jniranjanreddy/azure-AKS/assets/83489863/42087d97-7c5e-43e9-b263-1d8435886273)
 
 ```
